@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ant-table-dark .ant-table {
+  background-color: #1f2937;
+  color: white;
+}
+
+.ant-table-dark .ant-table-thead > tr > th {
+  background-color: #111827;
+  color: white;
+  border-bottom: 1px solid #374151;
+}
+
+.ant-table-dark .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #374151;
+  color: #e5e7eb;
+}
+
+.ant-table-dark .ant-table-tbody > tr:hover > td {
+  background-color: rgba(55, 65, 81, 0.3);
+}
+
+.ant-table-dark .ant-pagination-item-link,
+.ant-table-dark .ant-pagination-item a {
+  color: #e5e7eb !important;
+}
+
+.ant-table-dark .ant-pagination-item-active a {
+  color: white !important;
+}
+
+.ant-table-dark .ant-select-selector {
+  background-color: #374151 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+}
+
+.ant-table-dark .ant-empty-description {
+  color: #9ca3af;
+}
+
+.ant-table-dark .ant-table-column-sorter-inner {
+  color: #9ca3af;
+}
+.menu-item {
+  background: transparent !important;
+  transition: border-bottom 0.3s;
+}
+
+.menu-item:hover {
+  border-bottom: 2px solid #1890ff;
+  background: transparent !important;
+}
+
+.menu-item-active {
+  border-bottom: 2px solid #1890ff;
+  background: transparent !important;
+}

@@ -1,0 +1,45 @@
+@startuml
+actor User
+participant "Login Screen" as UI
+participant UserRouter
+participant UserController
+participant User as UserModel
+participant MongoDB
+
+User -> UI: 1. Open Login page
+alt Invalid Login Attempts
+    User -> UI: 2. Enter username/password
+    UI -> UserRouter: 3. POST /api/users/login
+    UserRouter -> UserController: 4. handleUserLogin()
+    UserController -> UserModel: 5. Find() User by Username
+    UserModel -> MongoDB: 6. Query User by Username
+    MongoDB --> UserModel: 7. Return User
+    
+    alt User not found
+        UserModel --> UserController: 8. Return null
+        UserController --> UserRouter: 9. Return Error
+        UserRouter --> UI: 10. Show Error("Username not found")
+        UI --> User: 11. Display error message
+    else User found but wrong password
+        UserController -> UserController: 12. Authenticate User
+        UserController --> UserRouter: 13. Return Error
+        UserRouter --> UI: 14. Show Error("Incorrect password")
+        UI --> User: 15. Display error message
+    end
+end
+
+alt Successful Login
+    User -> UI: Enter correct credentials
+    UI -> UserRouter: POST /api/users/login
+    UserRouter -> UserController: handleUserLogin()
+    UserController -> UserModel: Find() User
+    UserModel -> MongoDB: Query User
+    MongoDB --> UserModel: Return User
+    UserController -> UserController: Authenticate User
+    UserController -> UserController: Generate Token
+    UserController --> UserRouter: Return Token & User info
+    UserRouter --> UI: Return success response
+    UI --> User: Redirect to Dashboard
+end
+
+@enduml
