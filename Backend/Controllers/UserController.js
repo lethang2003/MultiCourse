@@ -507,15 +507,14 @@ exports.logout = async (req, res) => {
     }
 
     // ✅ Xóa cookie (nên set thêm secure/httpOnly/sameSite nếu dùng trên production)
-    res.clearCookie("Token", {
-      path: "/",
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax", // or "strict"
-    });
+ res.clearCookie("Token", {
+  path: "/",
+  httpOnly: true,
+  sameSite: "Lax",
+  secure: true, // Chỉ khi dùng HTTPS
+});
+res.status(200).json({ message: "Logout successful" });
 
-    // ✅ Điều hướng về trang chủ frontend
-    res.redirect("https://multi-course.onrender.com/");
   } catch (err) {
     console.error("Logout error: ", err);
     res.status(500).json({ message: "Internal Server Error" });

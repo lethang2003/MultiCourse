@@ -249,7 +249,10 @@ const Navbar = () => {
       localStorage.removeItem("userId");
 
       // Delete Token cookie
-      deleteCookie("Token");
+  const deleteCookie = (name) => {
+  document.cookie = `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Lax`;
+};
+
 
       // Trigger storage event to update Sidebar immediately
       window.dispatchEvent(new Event("storage"));
