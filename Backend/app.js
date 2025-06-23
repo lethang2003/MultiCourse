@@ -1,22 +1,22 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+// app.js
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require("cors");
 
 const mongoose = require("./Loaders/Mongoose");
-
 const admin = require("firebase-admin");
 const config = require("./Configurations/Config");
-
-const serviceAccount =
-  require("./Configurations/FirebaseConfig").serviceAccount;
+const serviceAccount = require("./Configurations/FirebaseConfig").serviceAccount;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   storageBucket: config.storage_bucket,
 });
 
+// Routers
 const UserRouter = require("./Routers/UsersRouter");
 const CourseRouter = require("./Routers/CourseRouter");
 const LessonRouter = require("./Routers/LessonRouter");
@@ -28,25 +28,36 @@ const OrderRouter = require("./Routers/OrderRouter");
 const CommentRouter = require("./Routers/CommentRouter");
 const WalletRouter = require("./Routers/WalletRouter");
 const CertificateRouter = require("./Routers/CertificateRouter");
-const ActivityHistory = require("./Routers/ActivityHistoryRouter");
+const ActivityHistoryRouter = require("./Routers/ActivityHistoryRouter");
 const RequestRouter = require("./Routers/RequestRouter");
-var app = express();
-const cors = require("cors");
-app.use(cors());
 
+const app = express();
+
+// Connect to database
 app.connect = mongoose;
 
-// view engine setup
+// View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+// Middlewares
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: ["https://multi-course.onrender.com", "http://localhost:3002","http://localhost:3000", "https://multi-course.onrender.com",], credentials: true }));
-// app.use(cors({ origin: "https://multi-course-rfc1.vercel.app", credentials: true }));
+
+// CORS Configuration
+app.use(cors({
+  origin: [
+    "https://multi-course.onrender.com",
+    "http://localhost:3000",
+    "http://localhost:3002"
+  ],
+  credentials: true,
+}));
+
+// API Routes
 app.use("/api/users", UserRouter);
 app.use("/api/courses", CourseRouter);
 app.use("/api/lessons", LessonRouter);
@@ -58,23 +69,21 @@ app.use("/api/payment", PaymentRouter);
 app.use("/api/progress", ProgressRouter);
 app.use("/api/wallet", WalletRouter);
 app.use("/api/certificates", CertificateRouter);
-app.use("/api/activities", ActivityHistory);
+app.use("/api/activities", ActivityHistoryRouter);
 app.use("/api/requests", RequestRouter);
-// app.js hoặc server.ts
+
+// Static for uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render("error");
 });

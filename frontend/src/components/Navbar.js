@@ -235,6 +235,8 @@ const Navbar = () => {
             headers: {
               Authorization: `Bearer ${token}`,
             },
+             withCredentials: true,
+            
           }
         );
       }
