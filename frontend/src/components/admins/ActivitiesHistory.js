@@ -56,7 +56,7 @@ export default function ActivitiesHistory() {
   const fetchActivities = () => {
     setLoading(true);
     axios
-      .get("http://localhost:3000/api/activities/admin/", {
+      .get("https://multicourse-q1mn.onrender.com/api/activities/admin/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

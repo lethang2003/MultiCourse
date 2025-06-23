@@ -69,7 +69,7 @@ const WithdrawalHistory = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "http://localhost:3000/api/wallet/requests-history",
+          "https://multicourse-q1mn.onrender.com/api/wallet/requests-history",
           {
             method: "GET",
             headers: {

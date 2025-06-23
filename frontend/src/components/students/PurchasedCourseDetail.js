@@ -115,7 +115,7 @@ const PurchasedCourseDetail = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/users/profile",
+          "https://multicourse-q1mn.onrender.com/api/users/profile",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -143,7 +143,7 @@ const PurchasedCourseDetail = () => {
     const fetchCourseDetail = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/courses/detail/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/courses/detail/${courseId}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -174,7 +174,7 @@ const PurchasedCourseDetail = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/comments/create-course-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/create-course-comment",
         {
           method: "POST",
           headers: {
@@ -196,7 +196,7 @@ const PurchasedCourseDetail = () => {
       }
 
       const updatedResponse = await fetch(
-        `http://localhost:3000/api/courses/detail/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/detail/${courseId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -233,7 +233,7 @@ const PurchasedCourseDetail = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/comments/update-course-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/update-course-comment",
         {
           method: "PUT",
           headers: {
@@ -256,7 +256,7 @@ const PurchasedCourseDetail = () => {
       }
 
       const updatedResponse = await fetch(
-        `http://localhost:3000/api/courses/detail/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/detail/${courseId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -288,7 +288,7 @@ const PurchasedCourseDetail = () => {
       onOk: async () => {
         try {
           const response = await fetch(
-            "http://localhost:3000/api/comments/delete-course-comment",
+            "https://multicourse-q1mn.onrender.com/api/comments/delete-course-comment",
             {
               method: "DELETE",
               headers: {
@@ -310,7 +310,7 @@ const PurchasedCourseDetail = () => {
 
           // Refresh course data
           const updatedResponse = await fetch(
-            `http://localhost:3000/api/courses/detail/${courseId}`,
+            `https://multicourse-q1mn.onrender.com/api/courses/detail/${courseId}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,

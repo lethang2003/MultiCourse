@@ -47,7 +47,7 @@ const Cart = () => {
     const fetchCartItems = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:3000/api/cart", {
+        const response = await fetch("https://multicourse-q1mn.onrender.com/api/cart", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const Cart = () => {
 
   const handleRemoveItem = async (itemId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/cart/${itemId}`, {
+      const response = await fetch(`https://multicourse-q1mn.onrender.com/api/cart/${itemId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ const Cart = () => {
   const handlePayment = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/orders/create-order/${cartId}`,
+        `https://multicourse-q1mn.onrender.com/api/orders/create-order/${cartId}`,
         {
           method: "POST",
           headers: {

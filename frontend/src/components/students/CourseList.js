@@ -153,7 +153,7 @@ const CourseList = () => {
         const authToken = localStorage.getItem("authToken");
 
         const coursesResponse = await fetch(
-          "http://localhost:3000/api/courses/active-courses",
+          "https://multicourse-q1mn.onrender.com/api/courses/active-courses",
           {
             method: "GET",
             headers: {
@@ -174,7 +174,7 @@ const CourseList = () => {
 
         if (authToken) {
           const ordersResponse = await fetch(
-            "http://localhost:3000/api/orders/my-orders",
+            "https://multicourse-q1mn.onrender.com/api/orders/my-orders",
             {
               method: "GET",
               headers: {
@@ -212,7 +212,7 @@ const CourseList = () => {
         await Promise.all(
           filteredCourses.map(async (course) => {
             const studentResponse = await fetch(
-              `http://localhost:3000/api/courses/student-of-course/${course._id}`
+              `https://multicourse-q1mn.onrender.com/api/courses/student-of-course/${course._id}`
             );
             const studentData = await studentResponse.json();
 
@@ -240,7 +240,7 @@ const CourseList = () => {
             if (tutorId) {
               console.log(`Fetching tutor data for ID: ${tutorId}`);
               const tutorResponse = await fetch(
-                `http://localhost:3000/api/tutors/${tutorId}`
+                `https://multicourse-q1mn.onrender.com/api/tutors/${tutorId}`
               );
               const tutorData = await tutorResponse.json();
               if (tutorResponse.ok) {
@@ -284,7 +284,7 @@ const CourseList = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/cart/add-to-cart/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/cart/add-to-cart/${courseId}`,
         {
           method: "POST",
           headers: {

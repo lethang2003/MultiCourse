@@ -2,9 +2,11 @@ const express = require("express");
 const cors = require("cors");
 
 const whitelist = [
-  "http://localhost:3000",
-  "http://localhost:3001",
+  
+  "https://multi-course.onrender.com",
+  "https://multicourse-q1mn.onrender.com",
   "https://localhost:3443",
+  "https://multi-course.onrender.com",
   "https://multi-course-rfc1.vercel.app",
   "https://accounts.google.com/",
 ];

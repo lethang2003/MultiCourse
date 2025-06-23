@@ -28,7 +28,7 @@ const PurchaseHistoryForAdmin = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/orders/all-orders",
+        "https://multicourse-q1mn.onrender.com/api/orders/all-orders",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

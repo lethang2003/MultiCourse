@@ -73,7 +73,7 @@ const MyCourses = () => {
     const fetchCertificates = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/certificates/get-all-certificates`,
+          `https://multicourse-q1mn.onrender.com/api/certificates/get-all-certificates`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -105,13 +105,13 @@ const MyCourses = () => {
       try {
         setLoading(true);
         const [ordersResponse, progressResponse] = await Promise.all([
-          fetch("http://localhost:3000/api/orders/my-orders", {
+          fetch("https://multicourse-q1mn.onrender.com/api/orders/my-orders", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             },
           }),
-          fetch("http://localhost:3000/api/progress", {
+          fetch("https://multicourse-q1mn.onrender.com/api/progress", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -200,7 +200,7 @@ const MyCourses = () => {
   const handleEnroll = async (courseId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/progress/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/progress/${courseId}`,
         {
           method: "POST",
           headers: {

@@ -41,7 +41,7 @@ const WalletStudent = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/payment/create-payment",
+        "https://multicourse-q1mn.onrender.com/api/payment/create-payment",
         { amount },
         {
           headers: {

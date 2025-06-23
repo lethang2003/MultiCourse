@@ -94,7 +94,7 @@ const CourseDetailForAdmin = () => {
     const fetchStudents = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/progress/students/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/progress/students/${courseId}`,
           {
             method: "GET",
             headers: {
@@ -128,7 +128,7 @@ const CourseDetailForAdmin = () => {
 
   //   try {
   //     await axios.delete(
-  //       `http://localhost:3000/api/lessons/${selectedLesson._id}`,
+  //       `https://multicourse-q1mn.onrender.com/api/lessons/${selectedLesson._id}`,
   //       {
   //         headers: {
   //           Authorization: `Bearer ${token}`,
@@ -153,7 +153,7 @@ const CourseDetailForAdmin = () => {
 
   //   try {
   //     await axios.delete(
-  //       `http://localhost:3000/api/exams/delete-exam/${exams._id}`,
+  //       `https://multicourse-q1mn.onrender.com/api/exams/delete-exam/${exams._id}`,
   //       {
   //         headers: {
   //           Authorization: `Bearer ${token}`,
@@ -228,7 +228,7 @@ const CourseDetailForAdmin = () => {
       }
       try {
         const courseResponse = await axios.get(
-          `http://localhost:3000/api/courses/detail/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/courses/detail/${courseId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -239,7 +239,7 @@ const CourseDetailForAdmin = () => {
         }
 
         const examResponse = await fetch(
-          `http://localhost:3000/api/exams/get-exam/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/exams/get-exam/${courseId}`,
           {
             method: "GET",
             headers: {
@@ -259,7 +259,7 @@ const CourseDetailForAdmin = () => {
         }
 
         // const incomeResponse = await axios.get(
-        //   `http://localhost:3000/api/orders/total-earning-from-course`,
+        //   `https://multicourse-q1mn.onrender.com/api/orders/total-earning-from-course`,
         //   { headers: { Authorization: `Bearer ${token}` } }
         // );
 
@@ -281,7 +281,7 @@ const CourseDetailForAdmin = () => {
         
         // Fetch user role
         const userResponse = await axios.get(
-          "http://localhost:3000/api/users/profile",
+          "https://multicourse-q1mn.onrender.com/api/users/profile",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         

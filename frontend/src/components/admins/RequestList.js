@@ -69,7 +69,7 @@ export default function RequestList() {
     setError(null);
     try {
       const response = await fetch(
-        "http://localhost:3000/api/requests/all-requests",
+        "https://multicourse-q1mn.onrender.com/api/requests/all-requests",
         {
           method: "GET",
           headers: {
@@ -179,7 +179,7 @@ export default function RequestList() {
       }, 100);
 
       const response = await fetch(
-        `http://localhost:3000/api/courses/${endpoint}/${requestId}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/${endpoint}/${requestId}`,
         {
           method,
           headers: {

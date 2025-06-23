@@ -43,7 +43,7 @@ const LessonDetail = () => {
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/lessons/${lessonId}`,
+          `https://multicourse-q1mn.onrender.com/api/lessons/${lessonId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -45,7 +45,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: ["http://localhost:3001", "http://localhost:3002"], credentials: true }));
+app.use(cors({ origin: ["https://multi-course.onrender.com", "http://localhost:3002","http://localhost:3000", "https://multi-course.onrender.com",], credentials: true }));
 // app.use(cors({ origin: "https://multi-course-rfc1.vercel.app", credentials: true }));
 app.use("/api/users", UserRouter);
 app.use("/api/courses", CourseRouter);
@@ -60,6 +60,9 @@ app.use("/api/wallet", WalletRouter);
 app.use("/api/certificates", CertificateRouter);
 app.use("/api/activities", ActivityHistory);
 app.use("/api/requests", RequestRouter);
+// app.js hoặc server.ts
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

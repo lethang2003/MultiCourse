@@ -13,7 +13,7 @@ export default function BuyerHistoryTutor() {
   
   const fetchBuyerHistory = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/orders/buyers-history-tutor', {
+      const response = await fetch('https://multicourse-q1mn.onrender.com/api/orders/buyers-history-tutor', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,

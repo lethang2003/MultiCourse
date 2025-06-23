@@ -38,16 +38,16 @@ export default function TutorStatistics() {
 
         const [courseRes, monthRes, todayRes, yearRes] = await Promise.all([
           axios.get(
-            "http://localhost:3000/api/orders/total-earning-from-course",
+            "https://multicourse-q1mn.onrender.com/api/orders/total-earning-from-course",
             { headers }
           ),
-          axios.get("http://localhost:3000/api/orders/revenue-month-tutor", {
+          axios.get("https://multicourse-q1mn.onrender.com/api/orders/revenue-month-tutor", {
             headers,
           }),
-          axios.get("http://localhost:3000/api/orders/revenue-day-tutor", {
+          axios.get("https://multicourse-q1mn.onrender.com/api/orders/revenue-day-tutor", {
             headers,
           }),
-          axios.get("http://localhost:3000/api/orders/revenue-year-tutor", {
+          axios.get("https://multicourse-q1mn.onrender.com/api/orders/revenue-year-tutor", {
             headers,
           }),
         ]);

@@ -39,7 +39,7 @@ export default function Certificate() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:3000/api/certificates/get-all-certificates",
+        "https://multicourse-q1mn.onrender.com/api/certificates/get-all-certificates",
         {
           method: "GET",
           headers: {

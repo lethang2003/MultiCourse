@@ -77,7 +77,7 @@ const ViewCertificate = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/certificates/get-tutor-certificate",
+        "https://multicourse-q1mn.onrender.com/api/certificates/get-tutor-certificate",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -109,7 +109,7 @@ const ViewCertificate = () => {
       
         try {
           await axios.delete(
-            `http://localhost:3000/api/certificates/delete-tutor-certificate/${id}`,
+            `https://multicourse-q1mn.onrender.com/api/certificates/delete-tutor-certificate/${id}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }

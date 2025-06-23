@@ -53,7 +53,7 @@ const WalletManageForAdmin = () => {
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/wallet/show-wallet-admin",
+          "https://multicourse-q1mn.onrender.com/api/wallet/show-wallet-admin",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const WalletManageForAdmin = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/wallet/all-withdrawal-requests",
+        "https://multicourse-q1mn.onrender.com/api/wallet/all-withdrawal-requests",
         {
           headers: {
             "Content-Type": "application/json",
@@ -123,7 +123,7 @@ const WalletManageForAdmin = () => {
   const handleApprove = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:3000/api/wallet/approve-withdrawal-request",
+        "https://multicourse-q1mn.onrender.com/api/wallet/approve-withdrawal-request",
         { withdrawalId: modalData.withdrawal_id },
         {
           headers: {
@@ -149,7 +149,7 @@ const WalletManageForAdmin = () => {
   const handleReject = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:3000/api/wallet/reject-withdrawal-request",
+        "https://multicourse-q1mn.onrender.com/api/wallet/reject-withdrawal-request",
         { withdrawalId: modalData.withdrawal_id },
         {
           headers: {

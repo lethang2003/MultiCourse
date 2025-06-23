@@ -65,7 +65,7 @@ const DetailCourse = () => {
       const checkPurchaseStatus = async () => {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/orders/check-purchase/${id}`,
+            `https://multicourse-q1mn.onrender.com/api/orders/check-purchase/${id}`,
             {
               method: "GET",
               headers: {
@@ -103,7 +103,7 @@ const DetailCourse = () => {
       const token = localStorage.getItem("authToken");
       try {
         const response = await fetch(
-          `http://localhost:3000/api/courses/detail/${id}`,
+          `https://multicourse-q1mn.onrender.com/api/courses/detail/${id}`,
           {
             method: "GET",
             headers: {
@@ -136,7 +136,7 @@ const DetailCourse = () => {
       if (course?.tutor) {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/users/profile/${course.tutor}`
+            `https://multicourse-q1mn.onrender.com/api/users/profile/${course.tutor}`
           );
           console.log("Response Status:", response.status);
           const data = await response.json();
@@ -171,7 +171,7 @@ const DetailCourse = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/cart/add-to-cart/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/cart/add-to-cart/${courseId}`,
         {
           method: "POST",
           headers: {
@@ -211,7 +211,7 @@ const DetailCourse = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/comments/create-course-comment`,
+        `https://multicourse-q1mn.onrender.com/api/comments/create-course-comment`,
         {
           method: "POST",
           headers: {

@@ -132,6 +132,7 @@ exports.login = async (req, res) => {
       res.status(200).json({
         message: "Login successful",
         user_id: user._id,
+        username: user.username,
         token: token,
         fullname: user.fullname, // Thêm fullname vào đây
         role: user.role,
@@ -496,21 +497,31 @@ exports.banAndUnbanUser = async (req, res) => {
 };
 
 
-//log out
+// controllers/auth.controller.js
+
 exports.logout = async (req, res) => {
   try {
-    const user = await Users.findOne({ _id: req.user._id });
+    const user = await Users.findById(req.user._id);
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
-    // Xóa cookie Token
-    res.clearCookie("Token", { path: "/" });
-    res.redirect("http://localhost:3001/");
+
+    // ✅ Xóa cookie (nên set thêm secure/httpOnly/sameSite nếu dùng trên production)
+    res.clearCookie("Token", {
+      path: "/",
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax", // or "strict"
+    });
+
+    // ✅ Điều hướng về trang chủ frontend
+    res.redirect("https://multi-course.onrender.com/");
   } catch (err) {
-    console.log(err);
+    console.error("Logout error: ", err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 exports.updateBankAccount = async (req, res) => {
   try {
@@ -578,7 +589,7 @@ exports.googleLoginCallback = async (req, res, next) => {
     if (!user) {
       const message = info?.message || "Authentication failed";
       return res.redirect(
-        `http://localhost:3001/login?error=${encodeURIComponent(message)}`
+        `https://multi-course.onrender.com/login?error=${encodeURIComponent(message)}`
       );
     }
 
@@ -604,7 +615,7 @@ exports.googleLoginCallback = async (req, res, next) => {
       // sameSite: "None",
       // secure: true,
     });
-    return res.redirect("http://localhost:3001/course-list");
+    return res.redirect("https://multi-course.onrender.com/course-list");
   })(req, res, next);
 };
 

@@ -108,7 +108,7 @@ const TutorRequests = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('authToken');
-      const response = await axios.get('http://localhost:3000/api/requests/requests-by-user', {
+      const response = await axios.get('https://multicourse-q1mn.onrender.com/api/requests/requests-by-user', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -176,7 +176,7 @@ const TutorRequests = () => {
         try {
           console.log("req id:", requestId);
           const token = localStorage.getItem('authToken');
-          await axios.post(`http://localhost:3000/api/requests/cancel-request/${requestId}`, 
+          await axios.post(`https://multicourse-q1mn.onrender.com/api/requests/cancel-request/${requestId}`, 
             { request_id: requestId },
             {
               headers: {

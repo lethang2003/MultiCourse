@@ -58,7 +58,7 @@ const ManageUser = () => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/users/all-users",
+          "https://multicourse-q1mn.onrender.com/api/users/all-users",
           {
             method: "GET",
             headers: {
@@ -576,7 +576,7 @@ const DropDownMenu = ({ record, setUsers, users, showCertificates }) => {
   const toggleUserStatus = async (id, status, message = "") => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/set-status-user/${id}`,
+        `https://multicourse-q1mn.onrender.com/api/users/set-status-user/${id}`,
         {
           method: "PUT",
           headers: {

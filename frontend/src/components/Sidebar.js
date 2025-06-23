@@ -46,7 +46,7 @@ function Sidebar() {
     // Check token and role when component mounts
     const token = localStorage.getItem("authToken");
     if (token) {
-      fetch("http://localhost:3000/api/users/profile", {
+      fetch("https://multicourse-q1mn.onrender.com/api/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -80,7 +80,7 @@ const Navbar = () => {
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/wallet/show-wallet-admin",
+          "https://multicourse-q1mn.onrender.com/api/wallet/show-wallet-admin",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -125,7 +125,7 @@ const Navbar = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/users/get-user-by-token",
+        "https://multicourse-q1mn.onrender.com/api/users/get-user-by-token",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -178,7 +178,7 @@ const Navbar = () => {
         return;
       }
       const response = await axios.get(
-        "http://localhost:3000/api/wallet/show-balance",
+        "https://multicourse-q1mn.onrender.com/api/wallet/show-balance",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -229,7 +229,7 @@ const Navbar = () => {
 
       if (token) {
         await axios.post(
-          "http://localhost:3000/api/users/logout",
+          "https://multicourse-q1mn.onrender.com/api/users/logout",
           {},
           {
             headers: {

@@ -10,7 +10,7 @@
 //     const fetchStudents = async () => {
 //       try {
 //         const response = await fetch(
-//           `http://localhost:3000/api/progress/students/${courseId}`,
+//           `https://multicourse-q1mn.onrender.com/api/progress/students/${courseId}`,
 //           {
 //             method: "GET",
 //             headers: {

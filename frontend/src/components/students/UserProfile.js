@@ -72,7 +72,7 @@ const UserProfile = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/users/profile",
+        "https://multicourse-q1mn.onrender.com/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -146,7 +146,7 @@ const UserProfile = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/upload-avatar",
+        "https://multicourse-q1mn.onrender.com/api/users/upload-avatar",
         formData,
         {
           headers: {
@@ -191,7 +191,7 @@ const UserProfile = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/api/users/change-password",
+        "https://multicourse-q1mn.onrender.com/api/users/change-password",
         {
           oldPassword,
           newPassword,
@@ -239,7 +239,7 @@ const UserProfile = () => {
 
           if (token) {
             await axios.post(
-              "http://localhost:3000/api/users/logout",
+              "https://multicourse-q1mn.onrender.com/api/users/logout",
               {},
               {
                 headers: {

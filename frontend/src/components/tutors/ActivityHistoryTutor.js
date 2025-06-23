@@ -16,7 +16,7 @@ function ActivityHistoryTutor() {
         setLoading(true);
         const token = localStorage.getItem('authToken');
         
-        const response = await axios.get('http://localhost:3000/api/activities/tutor', {
+        const response = await axios.get('https://multicourse-q1mn.onrender.com/api/activities/tutor', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

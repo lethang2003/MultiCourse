@@ -73,17 +73,17 @@ const StatisticForAdmin = () => {
   useEffect(() => {
     const loadData = async () => {
       await Promise.all([
-        fetchData("http://localhost:3000/api/orders/revenue", (data) =>
+        fetchData("https://multicourse-q1mn.onrender.com/api/orders/revenue", (data) =>
           setTotalRevenue(data.totalRevenue)
         ),
-        fetchData("http://localhost:3000/api/orders/revenue-day", (data) =>
+        fetchData("https://multicourse-q1mn.onrender.com/api/orders/revenue-day", (data) =>
           setRevenueToday(data.totalRevenueToday)
         ),
-        fetchData("http://localhost:3000/api/orders/revenue-year", (data) =>
+        fetchData("https://multicourse-q1mn.onrender.com/api/orders/revenue-year", (data) =>
           setRevenueYear(data.totalRevenueThisYear)
         ),
-        fetchData("http://localhost:3000/api/orders/revenue-each-month", setMonthlyRevenue),
-        fetchData("http://localhost:3000/api/orders/all-orders", (data) => {
+        fetchData("https://multicourse-q1mn.onrender.com/api/orders/revenue-each-month", setMonthlyRevenue),
+        fetchData("https://multicourse-q1mn.onrender.com/api/orders/all-orders", (data) => {
           setOrders(data);
           setFilteredOrders(data);
         })

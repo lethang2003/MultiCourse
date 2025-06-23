@@ -78,7 +78,7 @@ const ForgetPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/forgot-password",
+        "https://multicourse-q1mn.onrender.com/api/users/forgot-password",
         { email }
       );
 
@@ -110,7 +110,7 @@ const ForgetPassword = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/reset-password",
+        "https://multicourse-q1mn.onrender.com/api/users/reset-password",
         { otp, newPassword }
       );
   
@@ -138,7 +138,7 @@ const ForgetPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/resend-otp",
+        "https://multicourse-q1mn.onrender.com/api/users/resend-otp",
         { email }
       );
 

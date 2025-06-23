@@ -187,7 +187,7 @@ const CreateCourse = () => {
       formData.append("image", fileList[0].originFileObj);
   
       await axios.post(
-        "http://localhost:3000/api/courses/create-course",
+        "https://multicourse-q1mn.onrender.com/api/courses/create-course",
         formData,
         {
           headers: {

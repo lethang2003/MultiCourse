@@ -108,7 +108,7 @@ const CreateLesson = () => {
       // Send API request
       const token = localStorage.getItem("authToken");
       const response = await axios.post(
-        `http://localhost:3000/api/lessons/create-lesson/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/lessons/create-lesson/${courseId}`,
         formData,
         {
           headers: {

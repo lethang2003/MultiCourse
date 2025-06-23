@@ -64,7 +64,7 @@ export default function HomeScreen() {
     const fetchTopTutors = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/courses/top-tutors",
+          "https://multicourse-q1mn.onrender.com/api/courses/top-tutors",
           {
             method: "GET",
             headers: {
@@ -90,7 +90,7 @@ export default function HomeScreen() {
       setLoading(true);
       try {
         const response = await fetch(
-          "http://localhost:3000/api/courses/top-courses",
+          "https://multicourse-q1mn.onrender.com/api/courses/top-courses",
           {
             method: "GET",
             headers: {
@@ -113,7 +113,7 @@ export default function HomeScreen() {
     const fetchBestSeller = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/courses/best-seller",
+          "https://multicourse-q1mn.onrender.com/api/courses/best-seller",
           {
             method: "GET",
             headers: {

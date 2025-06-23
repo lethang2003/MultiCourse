@@ -71,7 +71,7 @@ const UpdateExam = () => {
     const fetchExam = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/exams/get-exam/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/exams/get-exam/${courseId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -237,7 +237,7 @@ const UpdateExam = () => {
       };
 
       await axios.put(
-        `http://localhost:3000/api/exams/update-exam/${exam._id}`,
+        `https://multicourse-q1mn.onrender.com/api/exams/update-exam/${exam._id}`,
         updatedExam,
         { headers: { Authorization: `Bearer ${token}` } }
       );

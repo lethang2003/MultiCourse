@@ -108,7 +108,7 @@ const CourseListForTutor = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/courses/course-of-tutor",
+          "https://multicourse-q1mn.onrender.com/api/courses/course-of-tutor",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -219,7 +219,7 @@ const CourseListForTutor = () => {
       onOk: async () => {
         try {
           const response = await axios.delete(
-            `http://localhost:3000/api/courses/delete-course/${courseId}`,
+            `https://multicourse-q1mn.onrender.com/api/courses/delete-course/${courseId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -257,7 +257,7 @@ const CourseListForTutor = () => {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        `http://localhost:3000/api/courses/update-course/${updatedCourse._id}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/update-course/${updatedCourse._id}`,
         updatedCourse,
         {
           headers: {
@@ -295,7 +295,7 @@ const CourseListForTutor = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/courses/update-course-image/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/update-course-image/${courseId}`,
         formData,
         {
           headers: {

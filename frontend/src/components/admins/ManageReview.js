@@ -64,7 +64,7 @@ export default function ManageReview() {
     setLoading(true);
     try {
       const response = await axios.get(
-        'http://localhost:3000/api/comments/show-all-comments', 
+        'https://multicourse-q1mn.onrender.com/api/comments/show-all-comments', 
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -625,8 +625,8 @@ const DropDownMenu = ({ record, fetchComments }) => {
   const toggleCommentStatus = async (type, commentId) => {
     try {
       const url = type === 'course' 
-        ? `http://localhost:3000/api/comments/change-course-comment-status/${commentId}`
-        : `http://localhost:3000/api/comments/change-lesson-comment-status/${commentId}`;
+        ? `https://multicourse-q1mn.onrender.com/api/comments/change-course-comment-status/${commentId}`
+        : `https://multicourse-q1mn.onrender.com/api/comments/change-lesson-comment-status/${commentId}`;
       
       await axios.put(url, {}, {
         headers: { Authorization: `Bearer ${token}` },

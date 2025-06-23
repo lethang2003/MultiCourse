@@ -131,7 +131,7 @@ const WalletManage = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:3000/api/wallet/requests-history",
+        "https://multicourse-q1mn.onrender.com/api/wallet/requests-history",
         {
           method: "GET",
           headers: {
@@ -224,7 +224,7 @@ const WalletManage = () => {
     const fetchBalance = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/wallet/show-balance",
+          "https://multicourse-q1mn.onrender.com/api/wallet/show-balance",
           {
             method: "GET",
             headers: {
@@ -257,7 +257,7 @@ const WalletManage = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/users/profile",
+          "https://multicourse-q1mn.onrender.com/api/users/profile",
           {
             method: "GET",
             headers: {
@@ -291,7 +291,7 @@ const WalletManage = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/wallet/withdrawal-request",
+        "https://multicourse-q1mn.onrender.com/api/wallet/withdrawal-request",
         {
           method: "POST",
           headers: {
@@ -341,7 +341,7 @@ const WalletManage = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/users/update-bank-account",
+        "https://multicourse-q1mn.onrender.com/api/users/update-bank-account",
         {
           method: "PUT",
           headers: {

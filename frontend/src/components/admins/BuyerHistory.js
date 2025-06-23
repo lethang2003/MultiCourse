@@ -60,7 +60,7 @@ export default function BuyerHistory() {
     const fetchBuyerHistory = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/orders/all-purchase-course",
+          "https://multicourse-q1mn.onrender.com/api/orders/all-purchase-course",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

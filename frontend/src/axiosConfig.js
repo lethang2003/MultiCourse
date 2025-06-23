@@ -1,7 +1,7 @@
 // src/axiosConfig.js
 import axios from 'axios';
 const instance = axios.create({
-    baseURL: "http://localhost:3000",    //backend
+    baseURL: "https://multicourse-q1mn.onrender.com",    //backend
 
     headers: {
       "Content-Type": "application/json",

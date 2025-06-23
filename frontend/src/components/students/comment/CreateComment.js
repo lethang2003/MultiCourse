@@ -18,7 +18,7 @@ const CreateComment = ({ courseId, onCommentAdded }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/comments/create-course-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/create-course-comment",
         { courseId, rating, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );

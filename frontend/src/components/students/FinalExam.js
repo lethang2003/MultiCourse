@@ -80,7 +80,7 @@ const FinalExam = () => {
     try {
       setSubmitting(true);
       await axios.post(
-        "http://localhost:3000/api/comments/create-course-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/create-course-comment",
         { courseId, rating, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -104,7 +104,7 @@ const FinalExam = () => {
     const fetchExam = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/exams/take-exam/${courseId}`,
+          `https://multicourse-q1mn.onrender.com/api/exams/take-exam/${courseId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -203,7 +203,7 @@ const FinalExam = () => {
         .filter(Boolean);
 
       const response = await axios.post(
-        `http://localhost:3000/api/exams/submit-exam/${exam.exam_id}`,
+        `https://multicourse-q1mn.onrender.com/api/exams/submit-exam/${exam.exam_id}`,
         { course_id: courseId, questions: formattedAnswers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -218,7 +218,7 @@ const FinalExam = () => {
       if (isPassed) {
         try {
           const certResponse = await axios.post(
-            `http://localhost:3000/api/certificates/create-certificate/${courseId}`,
+            `https://multicourse-q1mn.onrender.com/api/certificates/create-certificate/${courseId}`,
             {},
             { headers: { Authorization: `Bearer ${token}` } }
           );
@@ -257,7 +257,7 @@ const FinalExam = () => {
   const fetchCertificate = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/certificates/get-certificate/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/certificates/get-certificate/${courseId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.data.certificate.certificate_url) {

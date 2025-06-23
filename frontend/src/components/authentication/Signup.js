@@ -56,7 +56,7 @@ const Signup = () => {
   const onFinish = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/signup",
+        "https://multicourse-q1mn.onrender.com/api/users/signup",
         {
           ...values,
           birthday: values.birthday.format("YYYY-MM-DD"),

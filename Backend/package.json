@@ -8,6 +8,7 @@
   "dependencies": {
     "@google-cloud/storage": "^7.12.1",
     "@payos/node": "^1.0.10",
+    "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.2",
     "canvas": "^3.1.0",
     "cookie-parser": "~1.4.4",

@@ -29,7 +29,7 @@ const UpdateCourse = () => {
   const fetchCourseDetails = async (token) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/courses/detail/${id}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/detail/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -71,7 +71,7 @@ const UpdateCourse = () => {
       }
 
       await axios.put(
-        `http://localhost:3000/api/courses/update-course/${id}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/update-course/${id}`,
         formData,
         {
           headers: {

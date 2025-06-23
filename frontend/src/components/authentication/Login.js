@@ -193,7 +193,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/login",
+        "https://multicourse-q1mn.onrender.com/api/users/login",
         { username, password }
       );
 
@@ -246,7 +246,7 @@ const Login = () => {
     navigate("/signup", { state: { role: "Tutor" } });
   };
   const handleGoogleLogin = () => {
-    window.open("http://localhost:3000/api/users/google/login", "_self");
+    window.open("https://multicourse-q1mn.onrender.com/api/users/google/login", "_self");
 
     // const checkToken = setInterval(() => {
     //   const token = getCookie("token");
@@ -255,7 +255,7 @@ const Login = () => {
     //     localStorage.setItem("authToken", token);
 
     //     // Thêm đoạn code lấy role từ API
-    //     fetch("http://localhost:3000/api/users/profile", {
+    //     fetch("https://multicourse-q1mn.onrender.com/api/users/profile", {
     //       headers: {
     //         Authorization: `Bearer ${token}`,
     //       },

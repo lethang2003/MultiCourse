@@ -56,7 +56,7 @@ const UpdateProfile = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/users/profile",
+          "https://multicourse-q1mn.onrender.com/api/users/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -198,7 +198,7 @@ const UpdateProfile = () => {
 
     try {
       await axios.post(
-        "http://localhost:3000/api/users/update-profile",
+        "https://multicourse-q1mn.onrender.com/api/users/update-profile",
         formattedData,
         {
           headers: {

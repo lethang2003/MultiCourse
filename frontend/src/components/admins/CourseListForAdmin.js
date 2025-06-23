@@ -42,7 +42,7 @@ const CourseListForAdmin = () => {
     const token = localStorage.getItem("authToken");
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/courses/all-courses",
+        "https://multicourse-q1mn.onrender.com/api/courses/all-courses",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -517,7 +517,7 @@ const DropDownMenu = ({record, setCourses, courses, fetchCourses}) => {
     const token = localStorage.getItem("authToken");
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/courses/change-course-status/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/courses/change-course-status/${courseId}`,
         { status, message: reasonMsg },
         { headers: { Authorization: `Bearer ${token}` } }
       );

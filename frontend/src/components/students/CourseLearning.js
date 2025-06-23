@@ -118,7 +118,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
     const fetchUserProfile = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/users/profile",
+          "https://multicourse-q1mn.onrender.com/api/users/profile",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -150,7 +150,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/progress/${progressId}`,
+          `https://multicourse-q1mn.onrender.com/api/progress/${progressId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -235,7 +235,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
   const fetchExamScore = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/exams/get-exam-score/${courseId}`,
+        `https://multicourse-q1mn.onrender.com/api/exams/get-exam-score/${courseId}`,
         {
           method: "GET",
           headers: {
@@ -281,7 +281,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
     try {
       const lessonId = currentLesson._id;
       const response = await fetch(
-        "http://localhost:3000/api/comments/update-lesson-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/update-lesson-comment",
         {
           method: "PUT",
           headers: {
@@ -343,7 +343,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
         try {
           const lessonId = currentLesson._id;
           const response = await fetch(
-            "http://localhost:3000/api/comments/delete-lesson-comment",
+            "https://multicourse-q1mn.onrender.com/api/comments/delete-lesson-comment",
             {
               method: "DELETE",
               headers: {
@@ -391,7 +391,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/comments/create-lesson-comment",
+        "https://multicourse-q1mn.onrender.com/api/comments/create-lesson-comment",
         {
           method: "POST",
           headers: {
@@ -447,14 +447,14 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
     const fetchLessonsAndProgress = async () => {
       try {
         const [lessonsResponse, progressResponse] = await Promise.all([
-          fetch(`http://localhost:3000/api/lessons/all-lessons/${courseId}`, {
+          fetch(`https://multicourse-q1mn.onrender.com/api/lessons/all-lessons/${courseId}`, {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             },
           }),
           progressId
-            ? fetch(`http://localhost:3000/api/progress/${progressId}`, {
+            ? fetch(`https://multicourse-q1mn.onrender.com/api/progress/${progressId}`, {
                 headers: {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -527,7 +527,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
   const updateLessonProgress = async (status, note = "") => {
     try {
       await fetch(
-        `http://localhost:3000/api/progress/lesson/${currentLesson._id}`,
+        `https://multicourse-q1mn.onrender.com/api/progress/lesson/${currentLesson._id}`,
         {
           method: "PUT",
           headers: {
@@ -580,7 +580,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
 
   const updateNextLessonProgress = async (lessonId) => {
     try {
-      await fetch(`http://localhost:3000/api/progress/lesson/${lessonId}`, {
+      await fetch(`https://multicourse-q1mn.onrender.com/api/progress/lesson/${lessonId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -612,7 +612,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/progress/lesson/${currentLesson._id}`,
+        `https://multicourse-q1mn.onrender.com/api/progress/lesson/${currentLesson._id}`,
         {
           method: "PUT",
           headers: {
@@ -651,7 +651,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
     const fetchCertificates = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/certificates/get-all-certificates",
+          "https://multicourse-q1mn.onrender.com/api/certificates/get-all-certificates",
           {
             headers: {
               "Content-Type": "application/json",
@@ -815,7 +815,7 @@ const CourseLearningPage = ({ isCourseCompleted }) => {
                             type="primary"
                             size="large"
                             icon={<FileTextOutlined />}
-                            href="http://localhost:3001/my-certificate"
+                            href="https://multi-course.onrender.com/my-certificate"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ marginTop: 16 }}

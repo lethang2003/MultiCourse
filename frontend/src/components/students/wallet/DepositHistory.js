@@ -58,7 +58,7 @@ const DepositHistory = () => {
       setLoading(true);
       const token = localStorage.getItem("authToken");
       const response = await axios.get(
-        "http://localhost:3000/api/wallet/deposit-history",
+        "https://multicourse-q1mn.onrender.com/api/wallet/deposit-history",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

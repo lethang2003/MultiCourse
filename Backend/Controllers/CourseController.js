@@ -1,45 +1,22 @@
+// CourseController.js
+
 const Course = require("../Models/Courses");
 const Lesson = require("../Models/Lessons");
 const Request = require("../Models/Requests");
 const Order = require("../Models/Orders");
 const User = require("../Models/Users");
 const ActivityHistory = require("../Models/ActivityHistory");
-const multer = require("multer");
-const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
 const config = require("../Configurations/Config");
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+// ✅ Sử dụng upload middleware có sẵn
+const upload = require("../middlewares/upload.middleware");
 
-async function uploadFileToStorage(file, folderPath) {
-  const bucket = admin.storage().bucket();
-  const blob = bucket.file(folderPath + file.originalname);
-  const blobStream = blob.createWriteStream({
-    metadata: {
-      contentType: file.mimetype,
-    },
-  });
-  blobStream.on("error", (err) => {
-    console.log(err);
-  });
-  blobStream.on("finish", async () => {
-    await blob.makePublic();
-  });
-  blobStream.end(file.buffer);
+// ✅ Import đúng helper để upload file lên local
+const uploadFileToLocalStorage = require("../utils/upload.helper");
 
-  // Wait for the blob upload to complete
-  await new Promise((resolve, reject) => {
-    blobStream.on("finish", resolve);
-    blobStream.on("error", reject);
-  });
-
-  // Return the public URL
-  const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
-  return publicUrl;
-}
-
-//Course with status true
+// =============================
+// 📌 Lấy danh sách course active
 exports.getActiveCourses = async (req, res) => {
   try {
     const activeCourses = await Course.find({ status: true })
@@ -52,7 +29,8 @@ exports.getActiveCourses = async (req, res) => {
   }
 };
 
-//Get All Courses
+// =============================
+// 📌 Lấy toàn bộ course
 exports.getAllCourses = async (req, res) => {
   try {
     const courses = await Course.find().populate("tutor", "fullname").exec();
@@ -63,7 +41,8 @@ exports.getAllCourses = async (req, res) => {
   }
 };
 
-//Get Course of Tutor
+// =============================
+// 📌 Lấy danh sách course của gia sư
 exports.getCourseOfTutor = async (req, res) => {
   try {
     const courses = await Course.find({ tutor: req.user._id })
@@ -76,15 +55,18 @@ exports.getCourseOfTutor = async (req, res) => {
   }
 };
 
-//Get Course By ID
+// =============================
+// 📌 Lấy chi tiết 1 course theo ID
 exports.getCourseById = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id)
       .populate("tutor", "fullname email avatar address phone gender birthday")
       .exec();
+
     if (!course) {
       return res.status(404).json({ message: "Course not found" });
     }
+
     const lessons = await Lesson.find({ course_id: req.params.id });
     res.status(200).json({ courseDetail: course, lessons: lessons });
   } catch (err) {
@@ -93,27 +75,24 @@ exports.getCourseById = async (req, res) => {
   }
 };
 
-//Request Create Course
+// =============================
+// 📌 API: Gia sư gửi yêu cầu tạo khóa học
 exports.requetsCreateCourse = async (req, res) => {
   try {
     upload.single("image")(req, res, async (err) => {
       if (err) {
         console.log(err);
-        res.status(500).json({ message: "Internal Server Error" });
+        return res.status(500).json({ message: "Internal Server Error" });
       }
 
-      const tutor = req.user._id;
-      const title = req.body.title;
-      const description = req.body.description;
+      const { title, description, category } = req.body;
       const price = Number(req.body.price);
-      const category = req.body.category;
+      const tutor = req.user._id;
 
-      // Kiểm tra xem file hình ảnh có tồn tại không
       let imageUrl = null;
       if (req.file) {
-        // Upload hình ảnh lên Firebase Storage
-        const folderPath = "Courses/" + title + "/"; // Thay đổi theo cấu trúc thư mục bạn muốn
-        imageUrl = await uploadFileToStorage(req.file, folderPath);
+        const folderPath = "uploads/courses/";
+        imageUrl = await uploadFileToLocalStorage(req.file, folderPath);
       }
 
       const newCourse = new Course({
@@ -121,16 +100,11 @@ exports.requetsCreateCourse = async (req, res) => {
         title,
         description,
         price,
-        image: imageUrl,
         category,
+        image: imageUrl,
       });
 
       await newCourse.save();
-      const newActivity = new ActivityHistory({
-        user: req.user._id,
-        role: "Tutor",
-        description: `Requested to create a new course with \nID: ${newCourse._id} \ntitle: ${title}`,
-      });
 
       const newRequest = new Request({
         tutor,
@@ -146,8 +120,8 @@ exports.requetsCreateCourse = async (req, res) => {
         status: "Pending",
       });
 
-      await newActivity.save();
       await newRequest.save();
+
       res.status(201).json(newCourse);
     });
   } catch (err) {

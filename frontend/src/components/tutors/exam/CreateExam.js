@@ -274,7 +274,7 @@ const CreateExam = () => {
       };
 
       await axios.post(
-        "http://localhost:3000/api/exams/create-exam",
+        "https://multicourse-q1mn.onrender.com/api/exams/create-exam",
         examData,
         { 
           headers: { 
