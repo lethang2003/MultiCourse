@@ -181,11 +181,20 @@ export default function HomeScreen() {
             Unlock your potential with expert-led courses, interactive lessons,
             and a supportive learning community
           </p>
-          <a href="/course-list">
+          {/* <a href="/course-list">
             <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
               Get Started
             </button>
-          </a>
+          </a> */}
+
+          import { Link } from "react-router-dom";
+
+<Link to="/course-list">
+  <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
+    Get Started
+  </button>
+</Link>
+
         </div>
       </div>
 
