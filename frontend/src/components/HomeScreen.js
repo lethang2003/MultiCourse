@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
 export default function HomeScreen() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -187,7 +188,7 @@ export default function HomeScreen() {
             </button>
           </a> */}
 
-          import { Link } from "react-router-dom";
+
 
 <Link to="/course-list">
   <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
@@ -307,7 +308,7 @@ export default function HomeScreen() {
                       Explore Now
                     </button>
                   </a> */}
-            import { Link } from "react-router-dom";
+     
 
                   <Link to={`/coursedetail/${bestSeller.course._id}`}>
                     <button className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
