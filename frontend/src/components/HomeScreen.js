@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HomeScreen() {
   const [courses, setCourses] = useState([]);
@@ -292,11 +293,19 @@ export default function HomeScreen() {
                       : "No information available"}
                   </div>
 
-                  <a href={`/coursedetail/${bestSeller.course._id}`}>
+                  {/* <a href={`/coursedetail/${bestSeller.course._id}`}>
                     <button className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
                       Explore Now
                     </button>
-                  </a>
+                  </a> */}
+            import { Link } from "react-router-dom";
+
+                  <Link to={`/coursedetail/${bestSeller.course._id}`}>
+                    <button className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
+                      Explore Now
+                    </button>
+                  </Link>
+
                 </div>
               </div>
             ) : (
@@ -438,11 +447,17 @@ function CourseCard({ course }) {
           </div>
 
           {/* Action button */}
-          <a href={`/coursedetail/${course._id}`}>
+          {/* <a href={`/coursedetail/${course._id}`}>
             <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm hover:shadow-md flex items-center">
               View <ArrowRight size={14} className="ml-1" />
             </button>
-          </a>
+          </a> */}
+
+          <Link to={`/coursedetail/${course._id}`}>
+  <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm hover:shadow-md flex items-center">
+    View <ArrowRight size={14} className="ml-1" />
+  </button>
+</Link>
         </div>
       </div>
     </div>
